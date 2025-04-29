@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        /* 新导航栏样式 */
+        nav {
+            background: #f5f5f5;
+            padding: 15px 220px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 80px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        .nav-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .nav-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        /* 主体容器 */
+        .container {
+            display: flex;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        /* 侧边栏 */
+        .sidebar {
+            width: 240px;
+            padding-right: 30px;
+            border-right: 1px solid #eee;
+        }
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            color: #333;
+        }
+        .category-list {
+            list-style: none;
+            text-align: center; /* 添加此属性让列表居中 */
+        }
+        .category-list li {
+            margin: 20px 0;
+            line-height: 4.0;
+        }
+        .category-list a {
+            color: #666;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+        }
+        .category-list a:hover {
+            color: #007bff;
+            transform: translateX(5px);
+        }
+        .category-list li a[href="#"] {
+            padding-left: 12px;
+        }
+
+        /* 面包屑导航 */
+        .location {
+            color: #666;
+            font-size: 14px;
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 4px;
+        }
+        .location a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .location a:hover {
+            text-decoration: underline;
+        }
+
+        /* 产品展示区 */
+        .products {
+            flex: 1;
+        }
+        .product-row {
+            display: flex;
+            gap: 80px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .product-item {
+            width: 180px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            transition: box-shadow 0.3s;
+        }
+        .product-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .price {
+            color: #e4393c;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        /* 悬停效果优化 */
+        .product-item:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .product-item img {
+                height: 100px;
+                margin-bottom: 6px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav .nav-links {
+                margin-top: 10px;
+            }
+        }
+
+        /* 价格标签适配 */
+        .product-item {
+            text-align: center;
+            height: auto;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: #333;
+            min-height: 40px;
+            display: inline-block;
+        }
+
+        .price {
+            color: #e4393c;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 0;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 新导航栏结构 -->
+    <nav>
+        <img class="nav-avatar" src="https://picsum.photos/40/40" alt="头像标识">
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html">产品中心</a>
+            <a href="articles.html">文章中心</a>
+            <a href="honor.html">企业荣誉</a>
+            <a href="jobs.html">人才招聘</a>
+            <a href="contact.html">联系我们</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="category-header">
+                <h2>产品分类</h2>
+                <div class="location">
+                    <a href="index.html">首页</a> > 
+                    <a href="products.html">产品中心</a>
+                </div>
+            </div>
+            
+            <ul class="category-list">
+                <li><a href="rehabilitation.html">老人康复</a></li>
+                <li><a href="supplies.html">&nbsp;&nbsp;康复用品</a></li>
+                <li><a href="machinery.html">&nbsp;&nbsp;医用机械</a></li>
+                <li><a href="culture.html">&nbsp;&nbsp;老年文体</a></li>
+                <li><a href="elderly-rehab.html">&nbsp;&nbsp;老年康复</a></li>
+                <li><a href="home-care.html">&nbsp;&nbsp;居家养老</a></li>
+                <li><a href="culture-ly.html">&nbsp;&nbsp;老年旅游</a></li>
+                <li><a href="culture-sp.html">&nbsp;&nbsp;老年食品</a></li>
+            </ul>
+        </div>
+
+        <!-- 产品展示 -->
+        <div class="products">
+            <div class="product-row">
+                <!-- 老年旅游 -->
+                <div class="product-item">
+                    <img src="images/senior-travel.jpg" alt="老年旅游服务">
+                    <h3 class="product-title">腰椎固定</h3>
+                    <span class="price">￥1580.00</span>
+                </div>
+        
+                <!-- 折叠椅 -->
+                <div class="product-item">
+                    <img src="images/fold-chair.jpg" alt="可折叠老年座椅">
+                    <h3 class="product-title">折叠椅</h3>
+                    <span class="price">￥362.00元</span>
+                </div>
+        
+                <!-- 头环仪 -->
+                <div class="product-item">
+                    <img src="images/headset.jpg" alt="健康监测头环仪">
+                    <h3 class="product-title">头环仪</h3>
+                    <span class="price">￥3,200.00元</span>
+                </div>
+        
+                <!-- 监测手环 -->
+                <div class="product-item">
+                    <img src="images/bracelet.jpg" alt="智能健康监测手环">
+                    <h3 class="product-title">监测手环</h3>
+                    <span class="price">￥1,234.00元</span>
+                </div>
+            </div>
+        
+            <div class="product-row">
+                <!-- 按摩床 -->
+                <div class="product-item">
+                    <img src="images/massage-bed.jpg" alt="老年按摩理疗床">
+                    <h3 class="product-title">按摩床</h3>
+                    <span class="price">￥2,234.00元</span>
+                </div>
+        
+                <!-- 手臂护膝 -->
+                <div class="product-item">
+                    <img src="images/tly.jpg" alt="老年营养食品套餐">
+                    <h3 class="product-title">头疗仪</h3>
+                    <span class="price">￥634.00元</span>
+                </div>
+                <div class="product-item">
+                    <img src="images/xt.jpg" alt="老年营养食品套餐">
+                    <h3 class="product-title">血糖仪</h3>
+                    <span class="price">￥34.00元</span>
+                </div>
+                <div class="product-item">
+                    <img src="images/zdgz.png" alt="老年营养食品套餐">
+                    <h3 class="product-title">智能拐杖</h3>
+                    <span class="price">￥336.00元</span>
+                </div>
+                <div class="product-row">
+                    <!-- 按摩床 -->
+                    <div class="product-item">
+                        <img src="images/fsc.jpg" alt="老年按摩理疗床">
+                        <h3 class="product-title">便捷行走机</h3>
+                        <span class="price">￥734.00元</span>
+                    </div>
+                    
+                    <!-- 手臂护膝 -->
+                    <div class="product-item">
+                        <img src="images/jkjc.jpg" alt="老年营养食品套餐">
+                        <h3 class="product-title">检测机</h3>
+                        <span class="price">￥434.00元</span>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/whj.jpg" alt="老年营养食品套餐">
+                        <h3 class="product-title">雾化仪</h3>
+                        <span class="price">￥356.00元</span>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/xb.jpg" alt="老年营养食品套餐">
+                        <h3 class="product-title">排便机器</h3>
+                        <span class="price">￥1844.00元</span>
+                    </div>
+                    <div class="product-row">
+                        <!-- 按摩床 -->
+                        <div class="product-item">
+                            <img src="images/ybam.png" alt="老年按摩理疗床">
+                            <h3 class="product-title">腰部按摩椅</h3>
+                            <span class="price">￥765.00元</span>
+                        </div>
+                        
+                        <!-- 手臂护膝 -->
+                        <div class="product-item">
+                            <img src="images/xl.jpg" alt="老年营养食品套餐">
+                            <h3 class="product-title">血氧仪</h3>
+                            <span class="price">￥32.00元</span>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/fzl.jpg" alt="老年营养食品套餐">
+                            <h3 class="product-title">阻力轮</h3>
+                            <span class="price">￥99.00元</span>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/amy.jpg" alt="老年营养食品套餐">
+                            <h3 class="product-title">多功能床</h3>
+                            <span class="price">￥6724.00元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div>官方微信：GLXT****</div>
+        <div>官方电话:0443-8888888</div>
+        <div>官网网址:www.*****.com</div>
+    </footer>
+</body>
+</html>
+    

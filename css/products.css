@@ -1,0 +1,33 @@
+/* 调整后的图片样式 */
+.product-item img {
+    width: 100%;         /* 保持容器宽度 */
+    height: 120px;       /* 减小高度 */
+    object-fit: cover;   /* 保持比例 */
+    border-radius: 6px;  /* 圆角微调 */
+    margin-bottom: 8px;  /* 缩小间距 */
+    transition: all 0.3s ease;
+}
+
+/* 悬停效果优化 */
+.product-item:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .product-item img {
+        height: 100px;  /* 移动端更小尺寸 */
+        margin-bottom: 6px;
+    }
+    
+    .product-item {
+        width: 160px;   /* 调整容器宽度 */
+    }
+}
+
+/* 价格标签适配 */
+.price {
+    font-size: 14px;    /* 缩小字号保持比例 */
+    margin-top: 6px;
+}

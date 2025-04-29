@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业养老服务平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        nav {
+            background: #f5f5f5;
+            padding: 15px 220px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 80px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        .nav-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .nav-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .carousel-container {
+            margin: 0 auto;
+            margin-top: 40px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 800px;
+            background-color: #333;
+            border-radius: 10px;
+            height: 400px;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content-section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .content-box {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-box img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .content-title {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* 响应式布局：小屏幕下图文垂直排列 */
+        @media (max-width: 768px) {
+            .content-box {
+                flex-direction: column;
+            }
+
+            .content-box img {
+                width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav .nav-links {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img class="nav-avatar" src="https://picsum.photos/40/40" alt="头像标识">
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html">产品中心</a>
+            <a href="articles.html">文章中心</a>
+            <a href="honor.html">企业荣誉</a>
+            <a href="jobs.html">人才招聘</a>
+            <a href="contact.html">联系我们</a>
+        </div>
+    </nav>
+    <!-- 轮播图区域 -->
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <div class="carousel-slide" style="background-image: url('images/banner1.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('images/banner2.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('images/banner3.jpg')"></div>
+        </div>
+    </div>
+    <div class="content-section">
+        <div class="content-box">
+            <img src="https://picsum.photos/300/200" alt="城市建筑">
+            <div>
+                <h2 class="content-title">银发经济——银发宝盒</h2>
+                <p>整合优质资源，为老年群体提供便捷、安全、贴心的专属服务，银发宝盒涵盖多元功能，助力幸福晚年。</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 轮播图自动播放
+        let currentSlide = 0;
+        const slides = document.querySelector('.carousel-slides');
+        const totalSlides = document.querySelectorAll('.carousel-slide').length;
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }, 5000);
+    </script>
+</body>
+
+</html>    
